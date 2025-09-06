@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "4000:4000"
+
+  product-service:
+    build: ./product-service
+    container_name: product-service
+    ports:
+      - "5000:5000"
+    depends_on:
+      - auth-service
