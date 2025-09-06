@@ -1,0 +1,26 @@
+name: Node.js Auth Service CI
+
+on:
+  push:
+    paths:
+      - "auth-service/**"
+      - ".github/workflows/nodejs.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Install dependencies
+        run: cd auth-service && npm install
+
+      - name: Run tests
+        run: cd auth-service && npm test
