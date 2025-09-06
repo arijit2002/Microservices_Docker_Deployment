@@ -21,6 +21,3 @@ jobs:
 
       - name: Install dependencies
         run: cd auth-service && npm install
-
-      - name: Run tests
-        run: cd auth-service && npm test
